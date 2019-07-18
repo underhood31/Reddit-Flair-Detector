@@ -1,0 +1,97 @@
+body{
+	font-family: Chilanka;
+	font-size: 20px;
+	background-image: url(https://media.istockphoto.com/photos/gray-polygonal-background-picture-id514230814?k=6&m=514230814&s=612x612&w=0&h=sIamfonk2nq_q3jwY5nLbMVLKKZ9tA_Rwc6aedamjtY=);
+	background-attachment: fixed;
+}
+
+header{
+	width: 80%;
+	background-image: url(https://i.ytimg.com/vi/lClbGGHwN44/maxresdefault.jpg);
+	color: white;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 5px;
+	overflow:hidden;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+nav li{
+	float :left;
+	margin-right: 12px;
+}
+
+nav ul{
+	list-style-type: none;
+}
+
+section{
+	width: 80%;
+	background-color: white;
+	color: black;
+	margin-right: auto;
+	margin-left: auto;
+	
+	border-color: black;
+	border-style: solid;
+	border-width: 5px;
+}
+
+footer{
+	width: 80%;
+	background-color: black;
+	color: white;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 5px;
+	height: 75px;
+}
+p{
+	margin: 10px;
+}
+hgroup{
+	width: 70%;
+	float: left;
+}
+
+hgroup h1{
+	padding-top: 0;
+	line-height: 1em;
+}
+hgroup h2{
+	font-size: 1.2em;
+	line-height: 0.5em;
+	text-transform: uppercase;
+}
+
+nav{
+	width: 30%;
+	float: right;
+}
+img{
+	float:right;
+	margin: 0px 0px 10px 10px;   
+	box-shadow: 3px 3px 5px 1px #921069
+}
+aside{
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 3px;
+	margin-bottom: 20px;
+	background-color: #61d894;
+	border-style: dotted;
+	border-color:  #21854b ;
+	border-width: 5px;
+	border-radius: 15px; 
+	font-size:20px; 
+}
+a:visited{
+	text-decoration: none;
+	color: white;
+}
+a:hover{
+	color: orange;
+	font-style: italic;	
+	font-weight: bold;
+}
