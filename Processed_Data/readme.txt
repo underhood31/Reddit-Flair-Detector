@@ -26,6 +26,7 @@ flairToInt = {
         "r/all":16,
         "/r/all":16
     }
+    }
     
     categoryToInt = {
        'Top':1,

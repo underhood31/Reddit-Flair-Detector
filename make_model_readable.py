@@ -70,8 +70,10 @@ def simplifyText(s):
     for i in s:
         for c in string.punctuation:
             i= i.replace(c," ")
+            i=i.lower()
         toRet.append(i)
     return toRet
+
 allDataframe = pd.read_csv("Data/all.tsv", delimiter="\t")
 
 # Creating train and dev dataframes according to BERT
@@ -81,9 +83,9 @@ numDF = pd.DataFrame({'UserId':allDataframe['Username'],
             'Score':allDataframe['Score'],
             'NumComments': allDataframe['NoOfComments'],
             'Hour': getTheHour(allDataframe['TimeStamp']),
-            'Text':simplifyText(allDataframe['Title'].replace(r'\n',' ',regex=True))
+            'Text':simplifyText(allDataframe['Title'].replace(r'\n',' ',regex=True)),
+            'Comments':simplifyText(allDataframe['Comments'].replace(r'\n',' ',regex=True))
             })
- 
  
 # Saving dataframes to .tsv format as required by BERT
 numDF.to_csv('Processed_Data/all.csv', sep='\t', index=False, header=True)

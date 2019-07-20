@@ -7,6 +7,7 @@ from sklearn.model_selection import GridSearchCV
 # Loading the train dataset
 trainDataframe = pd.read_csv("./Bert_data/test.tsv", delimiter="\t")
 print(trainDataframe.head())
+trainDataframe = trainDataframe[trainDataframe.Flair == 1 || trainDataframe.Flair == 8 || trainDataframe.Flair == 11 ]
 
 flairList = trainDataframe["label"]
 titleList = trainDataframe["text"]
