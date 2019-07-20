@@ -1,0 +1,343 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <link href="../static/styles/c3.css" rel="stylesheet">
+    <link href="../static/styles/styles.css" rel="stylesheet">
+    <script src="../static/js/d3-5.8.2.min.js" charset="utf-8"></script>
+    <script src="../static/js/c3.min.js"></script>
+    <script type="text/javascript" src="../static/js/Chart.min.js"></script>
+    
+  
+    <!-- <script src="../static/js/papaparse.min.js"></script> -->
+  </head>
+  <body>
+    <header>
+        <center>
+        <hgroup>
+            <h1>
+            Statistics
+            </h1>
+        </hgroup>
+        </center>
+    </header>
+    <center>
+    <h2>Flair vs time graph in IST timezone</h2>
+            
+    <section>
+    <div id="chart">
+      <!-- <script src="../static/js/createGraph.js"></script> -->
+      <script>
+      // Creating list of top
+      var others=[];
+      var ama=[];
+      var askIndia=[];
+      var business=[];
+      var demonetization=[];
+      var entertainment=[];
+      var food=[];
+      var lifehacks=[];
+      var misleading=[];
+      var nonp=[];
+      var photo=[];
+      var policy=[];
+      var politics=[];
+      var scheduled=[];
+      var scTech=[];
+      var sports=[];
+      var red=[];
+      var rAll=[];
+
+      {% for item in others %}
+          others.push({{ item|safe }});
+      {% endfor %}
+      {% for item in ama %}
+          ama.push({{ item|safe }});
+      {% endfor %}
+      {% for item in askIndia %}
+          askIndia.push({{ item|safe }});
+      {% endfor %}
+      {% for item in business %}
+          business.push({{ item|safe }});
+      {% endfor %}
+      {% for item in demonetization %}
+          demonetization.push({{ item|safe }});
+      {% endfor %}
+      {% for item in entertainment %}
+          entertainment.push({{ item|safe }});
+      {% endfor %}
+      {% for item in food %}
+          food.push({{ item|safe }});
+      {% endfor %}
+      {% for item in lifehacks %}
+          lifehacks.push({{ item|safe }});
+      {% endfor %}
+      {% for item in misleading %}
+          misleading.push({{ item|safe }});
+      {% endfor %}  
+      {% for item in nonp %}
+          nonp.push({{ item|safe }});
+      {% endfor %}
+      {% for item in photo %}
+          photo.push({{ item|safe }});
+      {% endfor %}
+      {% for item in policy %}
+          policy.push({{ item|safe }});
+      {% endfor %}
+      {% for item in politics %}
+          politics.push({{ item|safe }});
+      {% endfor %}
+      {% for item in scheduled %}
+          scheduled.push({{ item|safe }});
+      {% endfor %}
+      {% for item in scTech %}
+          scTech.push({{ item|safe }});
+      {% endfor %}
+      {% for item in sports %}
+          sports.push({{ item|safe }});
+      {% endfor %}
+      {% for item in red %}
+          red.push({{ item|safe }});
+      {% endfor %}
+      {% for item in rAll %}
+          rAll.push({{ item|safe }});
+      {% endfor %}
+        // console.log(toplist[1]);
+      var chart = c3.generate({
+          bindto: '#chart',
+          data: {
+            columns: [
+              others,
+              ama,
+              askIndia,
+              business,
+              demonetization,
+              entertainment,
+              food,
+              lifehacks,
+              misleading,
+              nonp,
+              photo,
+              policy,
+              politics,
+              scheduled,
+              scTech,
+              sports,
+              red,
+              rAll
+            ]
+          }
+      });
+      </script>
+    <br><br>
+      
+    <h2>Posts in each category</h2>
+    <canvas id="Posts"></canvas>
+    <script>
+        var posts = []
+        {% for item in posts %}
+            posts.push({{ item|safe }});
+        {% endfor %}
+        
+        var likechrt = document.getElementById("Posts").getContext("2d");
+        likechrt.canvas.parentNode.style.height = '400px';
+        likechrt.canvas.parentNode.style.width = '1000px';
+        var likeChart= new Chart(likechrt,{
+            type: 'pie',
+            data: {
+                labels: [
+                    ama[0],
+                    askIndia[0],
+                    business[0],
+                    demonetization[0],
+                    entertainment[0],
+                    food[0],
+                    lifehacks[0],
+                    misleading[0],
+                    nonp[0],
+                    photo[0],
+                    policy[0],
+                    politics[0],
+                    scheduled[0],
+                    scTech[0],
+                    sports[0],
+                    red[0],
+                    rAll[0]
+                ],
+                datasets: [{
+                    label: '# of Posts',
+                    data: posts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(255, 0, 132, 0.5)',
+                        'rgba(139, 99, 139, 0.5)',
+                        'rgba(255, 99, 255, 0.5)',
+                        'rgba(0, 0, 255, 0.5)',
+                        'rgba(0, 255, 0, 0.5)',
+                        'rgba(230, 230, 250, 0.5)',
+                        'rgba(75, 0, 130, 0.5)',
+                        'rgba(70, 30, 180, 0.5)',
+                        'rgba(143, 188, 143, 0.5)',
+                        'rgba(240, 230, 140, 0.5)',
+                        'rgba(46, 139, 87, 0.5)',
+                        'rgba(255,105,180, 0.5)',
+                        'rgba(75,0,130, 0.5)',
+                        'rgba(255,218,185, 0.5)',
+                        'rgba(128, 128, 0, 0.5)',
+                        'rgba(176, 196, 222, 0.5)',
+                    ],   
+                    borderColor:[
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 0, 132, 1)',
+                        'rgba(139, 99, 139, 1)',
+                        'rgba(139, 0, 139, 1)',
+                        'rgba(0, 0, 255, 1)',
+                        'rgba(0, 255, 0, 1)',
+                        'rgba(230, 230, 250, 1)',
+                        'rgba(75, 0, 130, 1)',
+                        'rgba(70, 30, 180, 1)',
+                        'rgba(143, 188, 143, 1)',
+                        'rgba(240, 230, 140, 1)',
+                        'rgba(46, 139, 87, 1)',
+                        'rgba(255,105,180, 1)',
+                        'rgba(75,0,130, 1)',
+                        'rgba(255,218,185, 1)',
+                        'rgba(128, 128, 0, 1)',
+                        'rgba(176, 196, 222, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+
+        });
+    </script>
+    <h2>Upvotes V/S Flair</h2>
+   <canvas id="Likes"></canvas>
+    <script>
+        var likes = []
+        {% for item in likes %}
+            likes.push({{ item|safe }});
+        {% endfor %}
+        
+        var postchrt = document.getElementById("Likes").getContext("2d");
+        postchrt.canvas.parentNode.style.height = '400px';
+        postchrt.canvas.parentNode.style.width = '1000px';
+        var postChart= new Chart(postchrt,{
+            type: 'bar',
+            data: {
+                labels: [
+                    ama[0],
+                    askIndia[0],
+                    business[0],
+                    demonetization[0],
+                    entertainment[0],
+                    food[0],
+                    lifehacks[0],
+                    misleading[0],
+                    nonp[0],
+                    photo[0],
+                    policy[0],
+                    politics[0],
+                    scheduled[0],
+                    scTech[0],
+                    sports[0],
+                    red[0],
+                    rAll[0]
+                ],
+                datasets: [{
+                    label: '# of Upvotes',
+                    data: likes,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    
+                    borderColor:'rgba(255, 99, 132, 1)',
+                        
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+
+        });
+    </script>
+    <h2>Comments V/S Flair</h2>
+   <canvas id="Comments"></canvas>
+
+    <script>
+            var comments =[]
+           {% for item in comments %}
+                comments.push({{ item|safe }});
+            {% endfor %}
+            window.onload = function(){
+                var commentChart = document.getElementById("Comments").getContext("2d");
+                commentChart.canvas.parentNode.style.height = '400px';
+                commentChart.canvas.parentNode.style.width = '1000px';
+                var likeChart= new Chart(commentChart,{
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            ama[0],
+                            askIndia[0],
+                            business[0],
+                            demonetization[0],
+                            entertainment[0],
+                            food[0],
+                            lifehacks[0],
+                            misleading[0],
+                            nonp[0],
+                            photo[0],
+                            policy[0],
+                            politics[0],
+                            scheduled[0],
+                            scTech[0],
+                            sports[0],
+                            red[0],
+                            rAll[0]
+                        ],
+                        datasets: [{
+                            label: '# of Commnets',
+                            data: comments,
+                            backgroundColor: 'rgba(120, 120, 180, 0.2)',
+                            
+                            borderColor:'rgba(120, 120, 180, 1)',
+                                
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+        
+                });
+            }
+            
+        </script>
+
+    </div>
+    
+ 
+</section>
+</center>
+</body>
+</html>

@@ -24,7 +24,7 @@ def GetSpecificData(category_object, category_name, ):
             except:
                 Comments.append("")
                 num+=1
-        TimeStamp = dt.datetime.fromtimestamp(category_object.created)
+        TimeStamp = dt.datetime.fromtimestamp(category_object.created) + dt.timedelta(hours=5,minutes=30)
         Username = str(category_object.author)
         
         allDetails = {

@@ -33,7 +33,7 @@ def getLabel(s):
         "Sports":14,
         "[R]eddiquette":15,
         "r/all":16,
-        "/r/all":17 
+        "/r/all":16
     }
     toReturn=[]
     for i in s:
