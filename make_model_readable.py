@@ -87,5 +87,5 @@ numDF = pd.DataFrame({'UserId':allDataframe['Username'],
             'Comments':simplifyText(allDataframe['Comments'].replace(r'\n',' ',regex=True))
             })
  
-# Saving dataframes to .tsv format as required by BERT
 numDF.to_csv('Processed_Data/all.csv', sep='\t', index=False, header=True)
+numDF.to_csv('Webapp/Data/all.csv', sep='\t', index=False, header=True)
