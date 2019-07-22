@@ -25,7 +25,7 @@
 ## Usage:
 ### execute the scripts in the order above
 ### For predicting use use_model.py
-##Webapp (https://reddit-flair-detector-precog.herokuapp.com/)
+## Webapp (https://reddit-flair-detector-precog.herokuapp.com/)
 ### Code in /Webapp folder. Is is a flask app
 ### Hosted in heroku
 ### To run on localhost, run *<code>gunicorn index:app</code>* in /Webapp directory
