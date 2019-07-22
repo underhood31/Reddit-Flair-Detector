@@ -9,7 +9,7 @@
 ###	sklearn
 ###	collections
 ###	flask
-### gunicorn (only on unix like os)
+### gunicorn (works only on unix like os)
 ## JS libraries used:
 ###	c3.js
 ###	chart.js
