@@ -1,6 +1,6 @@
 # Reddit-Flair-Detector
 
-##Python(3.7) Dependencies:
+## Python(3.7) Dependencies:
 ###	praw
 ###	pandas
 ###	pymongo
@@ -10,10 +10,10 @@
 ###	collections
 ###	flask
 ### gunicorn (only on unix like os)
-##JS libraries used:
+## JS libraries used:
 ###	c3.js
 ###	chart.js
-##Scripts:
+## Scripts:
 ###	redditConnect.py--> Scrap reddit data and put it into local instance of mongoDB into two collections named, test and train
 ###	process_data.py--> Takes data from mongoDB collections and process data in a way which can be fed to the machine learing models and save it in Processed_Data/all.csv and Webapp/Data/all.csv. For number coding, read Processed_Data/readme.txt
 ###	comment_model.py--> Predicts using comments and save model in /Trained_models
@@ -22,7 +22,7 @@
 ###	numComments_model.py--> Predicts using no. of comments and save model in /Trained_models
 ###	score_model.py--> Predicts using scores and save model in /Trained_models
 ### use_model.py--> use title_model to predict results
-##Usage:
+## Usage:
 ### execute the scripts in the order above
 ### For predicting use use_model.py
 ##Webapp (https://reddit-flair-detector-precog.herokuapp.com/)
@@ -30,7 +30,7 @@
 ### Hosted in heroku
 ### To run on localhost, run *<code>gunicorn index:app</code>* in /Webapp directory
 ### Flair is predicted using title_model
- Help from:
+## Help from:
 ###	http://www.storybench.org/how-to-scrape-reddit-with-python/
 ###	https://praw.readthedocs.io/en/latest/index.html
 ###	https://appliedmachinelearning.blog/2019/03/04/state-of-the-art-text-classification-using-bert-model-predict-the-happiness-hackerearth-challenge/
@@ -40,3 +40,6 @@
 ### https://developers.google.com/chart/interactive/docs/gallery/histogram
 ### https://medium.com/@aneesha/svm-parameter-tuning-in-scikit-learn-using-gridsearchcv-2413c02125a0
 ### https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
+### https://c3js.org/
+### https://medium.com/@taplapinger/tuning-a-random-forest-classifier-1b252d1dde92
+### https://www.analyticsvidhya.com/blog/2018/04/a-comprehensive-guide-to-understand-and-implement-text-classification-in-python/
