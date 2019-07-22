@@ -53,13 +53,13 @@ Train = db['train']
 #PRAW configurations
 cred= praw.Reddit(client_id='HkBGGe_k4LXW9w', client_secret='yZQZeViIt5FDuLZSC3nxnkJFVto', user_agent='Flair_Detector')
 page = cred.subreddit('india')
-top = page.top(limit=10000)
-new = page.new(limit=10000)
-controversial = page.controversial(limit=10000)
-rising = page.rising(limit=10000)
-hot = page.hot(limit=10000)
+top = page.top(limit=1000)
+new = page.new(limit=1000)
+controversial = page.controversial(limit=1000)
+rising = page.rising(limit=1000)
+hot = page.hot(limit=1000)
 
-threshhold = 800 #Number of entries in train database /1000
+threshhold = 80 #Number of entries in train database /1000
 
 print("\n----------Top----------\n")
 count=0
