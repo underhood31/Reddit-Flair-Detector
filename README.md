@@ -21,15 +21,16 @@
 ###	NumCom_Score_model.py--> Predicts using no. of comments and score and save model in /Trained_models
 ###	numComments_model.py--> Predicts using no. of comments and save model in /Trained_models
 ###	score_model.py--> Predicts using scores and save model in /Trained_models
+### use_model.py--> use title_model to predict results
 ##Usage:
 ### execute the scripts in the order above
+### For predicting use use_model.py
 ##Webapp (https://reddit-flair-detector-precog.herokuapp.com/)
 ### Code in /Webapp folder. Is is a flask app
 ### Hosted in heroku
 ### To run on localhost, run *<code>gunicorn index:app</code>* in /Webapp directory
 ### Flair is predicted using title_model
- 
-Help from:
+ Help from:
 ###	http://www.storybench.org/how-to-scrape-reddit-with-python/
 ###	https://praw.readthedocs.io/en/latest/index.html
 ###	https://appliedmachinelearning.blog/2019/03/04/state-of-the-art-text-classification-using-bert-model-predict-the-happiness-hackerearth-challenge/
