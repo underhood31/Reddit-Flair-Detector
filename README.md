@@ -16,11 +16,11 @@
 ## Scripts:
 ###	redditConnect.py--> Scrap reddit data and put it into local instance of mongoDB into two collections named, test and train
 ###	process_data.py--> Takes data from mongoDB collections and process data in a way which can be fed to the machine learing models and save it in Processed_Data/all.csv and Webapp/Data/all.csv. For number coding, read Processed_Data/readme.txt
-###	comment_model.py--> Predicts using comments and save model in /Trained_models
-###	title_model.py--> Predicts using title and save model in /Trained_models
-###	NumCom_Score_model.py--> Predicts using no. of comments and score and save model in /Trained_models
-###	numComments_model.py--> Predicts using no. of comments and save model in /Trained_models
-###	score_model.py--> Predicts using scores and save model in /Trained_models
+###	comment_model.py--> Predicts using comments and save model in /Trained_models. RandomForestClassifier used.
+###	title_model.py--> Predicts using title and save model in /Trained_models. RandomForestClassifier used.
+###	NumCom_Score_model.py--> Predicts using no. of comments and score and save model in /Trained_models. SVC used.
+###	numComments_model.py--> Predicts using no. of comments and save model in /Trained_models. SVC used.
+###	score_model.py--> Predicts using scores and save model in /Trained_models. SVC used.
 ### use_model.py--> use title_model to predict results
 ## Usage:
 ### execute the scripts in the order above
