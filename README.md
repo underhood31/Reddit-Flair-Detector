@@ -9,6 +9,11 @@
 ###	sklearn
 ###	collections
 ###	flask
+### pickle
+### numpy
+### string
+### logging
+### json
 ### gunicorn (works only on unix like os)
 ## JS libraries used:
 ###	c3.js
