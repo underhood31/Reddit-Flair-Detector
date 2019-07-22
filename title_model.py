@@ -15,13 +15,13 @@ cv=CountVectorizer()
 features = cv.fit_transform(x_train)
 model = RandomForestClassifier(
     # class_weight="balanced",
-    n_estimators=150
+    n_estimators=140
 )
 model.fit(features,y_train)
 
 features_test = cv.transform(x_test)
 # print(y_train.head())
-# print(model.predict(cv.transform(["weekly mental health support thread july 21 2019"])))
+print(model.predict(cv.transform(["My grandfather (second from left) with Pandit Jawaharlal Nehru in the 60s after winning a Mallakhamb competition"])))
 # print(model.predict_proba("weekly mental health support thread july 21 2019"))
 print(model.score(features_test,y_test))
 

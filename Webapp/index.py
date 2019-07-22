@@ -6,35 +6,29 @@ import pandas as pd
 import json
 from collections import Counter
 import string
+import pickle
+import praw
 link = ''
-# flairToInt = {
-#         "Other": -1,
-#         "AMA":0,
-#         "AMA Concluded":0,
-#         "Casual AMA":0,
-#         "AskIndia":1,
-#         "Business/Finance":2,
-#         "Demonetization":3,
-#         "Entertainment":4,
-#         "Food":5,
-#         "Lifehacks":6,
-#         "Misleading":7,
-#         "Non-Political":8,
-#         "Photography":9,
-#         "Policy":10,
-#         "Policy & Economy":10,
-#         "Policy/Economy":10,
-#         "Politics":11,
-#         "Politics -- Source in comments": 11,
-#         "Politics [OLD]":11,
-#         "Scheduled":12,
-#         "Science & Technology":13,
-#         "Science/Technology":13,
-#         "Sports":14,
-#         "[R]eddiquette":15,
-#         "r/all":16,
-#         "/r/all":16
-#     }
+flairToInt = {
+        
+        "AMA":0,
+        "AskIndia":1,
+        "Business/Finance":2,
+        "Demonetization":3,
+        "Entertainment":4,
+        "Food":5,
+        "Lifehacks":6,
+        "Misleading":7,
+        "Non-Political":8,
+        "Photography":9,
+        "Policy":10,
+        "Politics":11,
+        "Scheduled":12,
+        "Science & Technology":13,
+        "Sports":14,
+        "[R]eddiquette":15,
+        "/r/all":16
+    }
 def initWith(num,times):
     toRet=[]
     for i in range(times):
@@ -159,6 +153,19 @@ def getMost(flair):
     counter = Counter(s)
     return counter.most_common(4) 
 
+def useLink(link):
+    cred= praw.Reddit(client_id='HkBGGe_k4LXW9w', client_secret='yZQZeViIt5FDuLZSC3nxnkJFVto', user_agent='Flair_Detector')
+    
+    p=praw.models.Submission(cred,url=link)
+    title=p.title.lower()
+    for i in string.punctuation:
+        title.replace(i,' ')
+    filename='./model/title_model.mod'
+    model = pickle.load(open(filename, 'rb'))
+    vectname = './model/title_vectorizer.vec'
+    cv = pickle.load(open(vectname, 'rb'))
+    return int(model.predict(cv.transform([title]))[0])
+
 @app.route('/')
 def index():
     logging.debug("Homepage Opened")
@@ -168,11 +175,12 @@ def index():
 def processLink():
     link = request.form['Link']
     logging.debug(link)
-    if link=='':
-        return "Enter a valid link"
-    else:
-        return "I got it"
-    
+    try:
+        cat=useLink(link)
+    except:
+        return "Invalid link"
+    numToFlair = dict(map(reversed, flairToInt.items()))
+    return render_template("Result.html",flair=numToFlair[cat])
 
 @app.route('/stats')
 def stats():

@@ -1,6 +1,8 @@
 import pandas as pd
 from collections import Counter
 import string
+import praw
+import pickle
 # flairToInt = {
 #         "Other": -1,
 #         "AMA":0,
@@ -143,8 +145,23 @@ def getMost(flair):
     s=s.split()
     counter = Counter(s)
     return counter.most_common(4) 
+
+def useLink(link):
+    cred= praw.Reddit(client_id='HkBGGe_k4LXW9w', client_secret='yZQZeViIt5FDuLZSC3nxnkJFVto', user_agent='Flair_Detector')
+    
+    p=praw.models.Submission(cred,url=link)
+    title=p.title.lower()
+    for i in string.punctuation:
+        title.replace(i,' ')
+    filename='./model/title_model.mod'
+    model = pickle.load(open(filename, 'rb'))
+    vectname = './model/title_vectorizer.vec'
+    cv = pickle.load(open(vectname, 'rb'))
+    return int(model.predict(cv.transform([title]))[0])
+
 others,ama,askIndia,business,demonetization,entertainment,food,lifehacks,misleading,nonp,photo,policy,politics,scheduled,scTech,sports,red,rAll = CategoryVsTime()
 likes = getDataByHeader("NumComments")
+print(useLink('https://www.reddit.com/r/india/comments/cfw2bn/my_grandfather_second_from_left_with_pandit/'))
 for i in range(-1,17):
     s = getMost(i)
     print(s)
