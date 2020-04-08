@@ -51,7 +51,7 @@ Test = db['test']
 Train = db['train']
 
 #PRAW configurations
-cred= praw.Reddit(client_id='HkBGGe_k4LXW9w', client_secret='yZQZeViIt5FDuLZSC3nxnkJFVto', user_agent='Flair_Detector')
+cred= praw.Reddit(client_id='', client_secret='', user_agent='Flair_Detector')
 page = cred.subreddit('india')
 top = page.top(limit=1000)
 new = page.new(limit=1000)
